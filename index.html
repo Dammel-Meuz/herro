@@ -1,0 +1,484 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif
+  }
+
+  .hero {
+    width: 100%;
+    height: 100vh;
+    background: #012d5a;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Segoe UI', Arial, sans-serif
+  }
+
+  .hero-inner {
+    position: relative;
+    min-height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    /* padding: 60px 52px; */
+    padding-left: 60px;
+    padding-top: 50px;
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(164, 196, 225, 0.12);
+    border: 1px solid rgba(164, 196, 225, 0.25);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 18px
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #a4c4e1;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: blink 2.4s ease-in-out infinite
+  }
+
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1
+    }
+
+    50% {
+      opacity: .35
+    }
+  }
+
+  .badge-text {
+    font-size: 14px;
+    color: rgba(164, 196, 225, 0.95);
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    font-weight: 600
+  }
+
+  .hero-title {
+    font-size: 50px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    margin-bottom: 16px;
+    text-transform: uppercase
+  }
+
+  .hero-title .accent {
+    color: #a4c4e1;
+    display: block
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.85;
+    margin-bottom: 12px;
+    max-width: 460px
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 15px 32px;
+    background: #024b95;
+    border: 2px solid #a4c4e1;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: background .2s;
+    text-align: center
+  }
+
+  .btn-primary:hover {
+    background: #035ab8
+  }
+
+  .btn-sec {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border: 1px solid rgba(164, 196, 225, 0.35);
+    color: rgba(164, 196, 225, 0.9);
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 0;
+    margin-top: 14px;
+    border-top: 1px solid rgba(164, 196, 225, 0.15);
+    padding-top: 26px
+  }
+
+  .stat {
+    flex: 1;
+    padding-right: 22px
+  }
+
+  .stat+.stat {
+    border-left: 1px solid rgba(164, 196, 225, 0.13);
+    padding-left: 22px;
+    padding-right: 0
+  }
+
+  .stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: #a4c4e1;
+    line-height: 1
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    margin-top: 6px
+  }
+
+  .dash-anim {
+    stroke-dasharray: 8 5;
+    animation: flow 2.5s linear infinite
+  }
+
+  @keyframes flow {
+    to {
+      stroke-dashoffset: -52
+    }
+  }
+
+  .pulse-ring {
+    animation: ring 2.2s ease-in-out infinite
+  }
+
+  @keyframes ring {
+
+    0%,
+    100% {
+      opacity: .6;
+      r: 10
+    }
+
+    50% {
+      opacity: .15;
+      r: 16
+    }
+  }
+
+  .node-pulse {
+    animation: npulse 2s ease-in-out infinite
+  }
+
+  @keyframes npulse {
+
+    0%,
+    100% {
+      opacity: 1
+    }
+
+    50% {
+      opacity: .5
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner {
+      width: 100%;
+      padding: 48px 30px;
+    }
+
+    .hero-title {
+      font-size: 46px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      max-width: 100%;
+    }
+
+    .cta-row {
+      gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-sec {
+      font-size: 14px;
+      padding: 13px 26px;
+    }
+
+    .stats-row {
+      flex-wrap: wrap;
+      margin-top: 32px;
+      padding-top: 20px;
+    }
+
+    .stat {
+      flex: 1 1 50%;
+      padding-right: 16px;
+      margin-bottom: 16px;
+    }
+
+    .stat+.stat {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      height: auto;
+      min-height: 100vh;
+    }
+
+    .hero-inner {
+      align-items: flex-start;
+      padding: 32px 18px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      line-height: 1.05;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    .cta-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-sec {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+    }
+
+    .stats-row {
+      flex-direction: column;
+    }
+
+    .stat {
+      flex: 1 1 100%;
+      padding-right: 0;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .stat+.stat {
+      border-top: 1px solid rgba(164, 196, 225, 0.13);
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+  }
+</style>
+
+<div class="hero">
+
+  <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 900 440"
+    preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+
+    <rect width="900" height="440" fill="#012d5a" />
+
+    <polygon points="0,0 900,0 900,440 0,440" fill="url(#bggrad)" />
+    <defs>
+      <linearGradient id="bggrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#01244a" />
+        <stop offset="100%" stop-color="#013668" />
+      </linearGradient>
+      <radialGradient id="glow1" cx="75%" cy="30%" r="40%">
+        <stop offset="0%" stop-color="#024b95" stop-opacity="0.45" />
+        <stop offset="100%" stop-color="#024b95" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow2" cx="80%" cy="70%" r="35%">
+        <stop offset="0%" stop-color="#a4c4e1" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#a4c4e1" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <rect width="900" height="440" fill="url(#glow1)" />
+    <rect width="900" height="440" fill="url(#glow2)" />
+
+    <line x1="480" y1="0" x2="480" y2="440" stroke="rgba(164,196,225,0.04)" stroke-width="1" />
+    <line x1="540" y1="0" x2="540" y2="440" stroke="rgba(164,196,225,0.03)" stroke-width="1" />
+    <line x1="600" y1="0" x2="600" y2="440" stroke="rgba(164,196,225,0.035)" stroke-width="1" />
+    <line x1="660" y1="0" x2="660" y2="440" stroke="rgba(164,196,225,0.025)" stroke-width="1" />
+    <line x1="720" y1="0" x2="720" y2="440" stroke="rgba(164,196,225,0.025)" stroke-width="1" />
+    <line x1="780" y1="0" x2="780" y2="440" stroke="rgba(164,196,225,0.02)" stroke-width="1" />
+    <line x1="840" y1="0" x2="840" y2="440" stroke="rgba(164,196,225,0.015)" stroke-width="1" />
+    <line x1="480" y1="0" x2="900" y2="440" stroke="rgba(164,196,225,0.04)" stroke-width="1" />
+    <line x1="540" y1="0" x2="900" y2="360" stroke="rgba(164,196,225,0.025)" stroke-width="1" />
+    <line x1="420" y1="0" x2="900" y2="480" stroke="rgba(164,196,225,0.02)" stroke-width="1" />
+
+    <polygon points="870,0 900,0 900,60" fill="rgba(164,196,225,0.06)" />
+    <polygon points="480,440 900,100 900,440" fill="rgba(2,75,149,0.18)" />
+
+    <circle cx="820" cy="80" r="160" fill="none" stroke="rgba(164,196,225,0.05)" stroke-width="1" />
+    <circle cx="820" cy="80" r="110" fill="none" stroke="rgba(164,196,225,0.07)" stroke-width="1" />
+    <circle cx="820" cy="80" r="60" fill="none" stroke="rgba(164,196,225,0.09)" stroke-width="0.5" />
+    <circle cx="820" cy="80" r="22" fill="rgba(2,75,149,0.35)" stroke="rgba(164,196,225,0.25)" stroke-width="0.5" />
+    <circle cx="820" cy="80" r="4" fill="#a4c4e1" opacity="0.7" />
+
+    <g transform="translate(490,30) scale(0.82)">
+      <path
+        d="M190,22 C205,18 225,16 242,22 C258,28 268,42 272,58 C276,74 270,88 262,102 C255,115 248,128 248,145 C248,162 254,178 256,194 C258,210 252,226 240,238 C228,250 212,258 196,260 C180,262 164,258 151,248 C138,238 130,222 128,206 C126,190 132,174 134,158 C136,142 130,126 126,110 C122,94 122,76 130,62 C138,48 152,34 168,26 C175,23 182,22 190,22 Z"
+        fill="#013668" stroke="#024b95" stroke-width="1.2" />
+      <path
+        d="M165,85 C172,80 182,78 192,80 C202,82 210,90 212,100 C214,110 208,120 200,126 C192,132 180,132 172,126 C164,120 160,108 162,98 C163,92 164,88 165,85 Z"
+        fill="#024b95" opacity="0.6" />
+      <path
+        d="M128,150 C136,144 148,142 160,145 C172,148 182,157 186,168 C190,179 186,191 178,198 C170,205 158,206 148,202 C138,198 130,188 128,178 C126,168 127,158 128,150 Z"
+        fill="#024b95" opacity="0.45" />
+      <path
+        d="M202,148 C212,144 224,143 234,148 C244,153 250,163 250,174 C250,185 244,195 234,200 C224,205 212,203 204,196 C196,189 194,177 198,166 C199,160 200,154 202,148 Z"
+        fill="#024b95" opacity="0.45" />
+      <path
+        d="M155,200 C163,196 174,196 184,200 C194,204 200,214 200,224 C200,234 194,244 184,248 C174,252 162,250 154,244 C146,238 142,226 146,216 C148,208 151,203 155,200 Z"
+        fill="#024b95" opacity="0.35" />
+
+      <line x1="120" y1="60" x2="190" y2="22" stroke="rgba(164,196,225,0.12)" stroke-width="0.5" />
+      <line x1="272" y1="58" x2="340" y2="30" stroke="rgba(164,196,225,0.1)" stroke-width="0.5" />
+      <line x1="256" y1="194" x2="320" y2="210" stroke="rgba(164,196,225,0.1)" stroke-width="0.5" />
+      <line x1="190" y1="260" x2="190" y2="320" stroke="rgba(164,196,225,0.1)" stroke-width="0.5" />
+      <line x1="128" y1="206" x2="60" y2="230" stroke="rgba(164,196,225,0.1)" stroke-width="0.5" />
+
+      <circle cx="192" cy="100" r="5.5" fill="#a4c4e1" class="node-pulse" />
+      <circle cx="192" cy="100" r="13" fill="none" stroke="#a4c4e1" stroke-width="0.8" class="pulse-ring" />
+
+      <circle cx="158" cy="172" r="4" fill="#a4c4e1" opacity="0.75" />
+      <circle cx="232" cy="172" r="4" fill="#a4c4e1" opacity="0.75" />
+      <circle cx="174" cy="222" r="3.5" fill="#a4c4e1" opacity="0.6" />
+      <circle cx="196" cy="246" r="3" fill="#a4c4e1" opacity="0.5" />
+
+      <circle cx="140" cy="72" r="2.5" fill="#a4c4e1" opacity="0.4" />
+      <circle cx="258" cy="66" r="2.5" fill="#a4c4e1" opacity="0.4" />
+      <circle cx="268" cy="130" r="2" fill="#a4c4e1" opacity="0.35" />
+
+      <path d="M192,100 Q175,136 158,172" stroke="#a4c4e1" stroke-width="1" fill="none" stroke-dasharray="4 3"
+        opacity="0.5" />
+      <path d="M192,100 Q212,136 232,172" stroke="#a4c4e1" stroke-width="1" fill="none" stroke-dasharray="4 3"
+        opacity="0.5" />
+      <path d="M158,172 Q166,197 174,222" stroke="#a4c4e1" stroke-width="0.8" fill="none" stroke-dasharray="3 3"
+        opacity="0.4" />
+      <path d="M232,172 Q213,197 196,222" stroke="#a4c4e1" stroke-width="0.8" fill="none" stroke-dasharray="3 3"
+        opacity="0.4" />
+    </g>
+
+    <circle cx="450" cy="195" r="4" fill="#a4c4e1" opacity="0.6" />
+    <path d="M450,195 Q470,150 510,130" stroke="#a4c4e1" stroke-width="1.2" fill="none" class="dash-anim"
+      opacity="0.5" />
+    <circle cx="510" cy="130" r="3.5" fill="#a4c4e1" opacity="0.5" />
+
+    <g opacity="0.3">
+      <circle cx="380" cy="340" r="1.5" fill="#a4c4e1" />
+      <circle cx="400" cy="360" r="1.5" fill="#a4c4e1" />
+      <circle cx="420" cy="345" r="1.5" fill="#a4c4e1" />
+      <circle cx="440" cy="365" r="1.5" fill="#a4c4e1" />
+      <circle cx="460" cy="350" r="1.5" fill="#a4c4e1" />
+      <circle cx="370" cy="360" r="1" fill="#a4c4e1" />
+      <circle cx="390" cy="380" r="1" fill="#a4c4e1" />
+      <circle cx="410" cy="375" r="1" fill="#a4c4e1" />
+      <circle cx="430" cy="385" r="1" fill="#a4c4e1" />
+    </g>
+
+    <path d="M840,200 Q820,280 760,320 Q720,345 680,350" stroke="#a4c4e1" stroke-width="0.8" fill="none"
+      stroke-dasharray="5 4" opacity="0.2" />
+    <path d="M860,140 Q830,200 800,240 Q775,270 750,285" stroke="#a4c4e1" stroke-width="0.6" fill="none"
+      stroke-dasharray="3 5" opacity="0.15" />
+
+    <rect x="0" y="0" width="460" height="440" fill="url(#leftfade)" />
+    <defs>
+      <linearGradient id="leftfade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#012d5a" stop-opacity="0" />
+        <stop offset="100%" stop-color="#012d5a" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+    
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Solutions logistiques internationales</span>
+      </div>
+
+      <h1 class="hero-title">
+        VOTRE RELAIS<br>
+        LOGISTIQUE<br>
+        <span class="accent">VERS L'AFRIQUE</span>
+      </h1>
+
+      <p class="hero-sub">Fret maritime, aérien et transport terrestre — nous connectons votre entreprise aux marchés
+        africains avec fiabilité et expertise.</p>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="#">Demander un devis</a>
+        <a class="btn-sec" href="#">
+          Nos services
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="#a4c4e1" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num">54</div>
+          <div class="stat-label">Pays desservis</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Ans d'expérience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Taux de satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
